@@ -9,12 +9,13 @@ btnCreate.addEventListener('click', createMarkUp);
 btnDestroy.addEventListener('click', destroyBoxes);
 
 function createMarkUp() {
-  if (Number(input.value) <= 1 || Number(input.value) >= 100) {
+  if (Number(input.value) <= 0 || Number(input.value) > 100) {
     console.log('error');
     return;
   }
 
   createBoxes(+input.value);
+  input.value = '';
 }
 
 function createBoxes(amount) {
@@ -36,7 +37,6 @@ function createBoxes(amount) {
 
   box.append(...arr);
   console.log(arr);
-  console.log(box);
 }
 
 function getRandomHexColor() {
