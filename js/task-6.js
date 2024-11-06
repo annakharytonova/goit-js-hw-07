@@ -36,7 +36,6 @@ function createBoxes(amount) {
   }
 
   box.append(...arr);
-  console.log(arr);
 }
 
 function getRandomHexColor() {
