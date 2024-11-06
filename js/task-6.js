@@ -9,18 +9,12 @@ btnCreate.addEventListener('click', createMarkUp);
 btnDestroy.addEventListener('click', destroyBoxes);
 
 function createMarkUp() {
-  if (Number(input.value) < 0 || Number(input.value) > 100) {
+  if (Number(input.value) <= 1 || Number(input.value) >= 100) {
     console.log('error');
     return;
   }
 
   createBoxes(+input.value);
-}
-
-function destroyBoxes() {
-  box.innerHTML = '';
-  input.value = '';
-  sizes = 30;
 }
 
 function createBoxes(amount) {
@@ -41,10 +35,18 @@ function createBoxes(amount) {
   }
 
   box.append(...arr);
+  console.log(arr);
+  console.log(box);
 }
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
     .padStart(6, 0)}`;
+}
+
+function destroyBoxes() {
+  box.innerHTML = '';
+  input.value = '';
+  sizes = 30;
 }
